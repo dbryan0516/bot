@@ -2,11 +2,10 @@
 set -e
 
 TIMESTAMP=`date +'%Y-%m-%d %H:%M %Z'`
-REPO_DIR=/home/dylan/Desktop/bot/
+REPO_DIR=/home/dylan/Desktop/bot
 FILE=transactions.log
+GIT=/usr/bin/git
 
-FILES_TO_COMMIT=${REPO_DIR}${FILE}
-
-git add ${FILES_TO_COMMIT}
-git commit -m "AUTOCOMMIT ${TIMESTAMP}"
-git push
+cd ${REPO_DIR} && ${GIT} add ${FILE}
+cd ${REPO_DIR} && ${GIT} commit -m "AUTOCOMMIT ${TIMESTAMP}"
+cd ${REPO_DIR} && ${GIT} push
